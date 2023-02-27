@@ -19,20 +19,10 @@ const markup = galleryItems
   .join('');
 
 photoPalette.insertAdjacentHTML('afterbegin', markup);
+let lightbox = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 console.log(galleryItems);
-
-photoPalette.addEventListener('click', selectPhoto);
-
-function selectPhoto(event) {
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-  event.preventDefault();
-
-  let lightbox = new SimpleLightbox('.gallery a', {
-    captions: true,
-    captionsData: 'alt',
-    captionDelay: '205',
-  });
-}
